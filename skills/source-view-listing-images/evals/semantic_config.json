@@ -1,0 +1,13 @@
+{
+  "positive_concepts": {
+    "listing_visuals": {"weight":3.0,"phrases":["listing image","listing image set","listing image sets","ecommerce main images","商品图","上架图","套图","主图","详情图","main images","detail pages"]},
+    "source_grounding": {"weight":1.6,"phrases":["selling points","商品卖点","产品卖点","中文参考图","中文详情图","商品原图","product detail images","exact sku references","实物"]},
+    "model_identity": {"weight":0.5,"phrases":["模特图","指定模特","虚拟模特","real model","virtual model","virtual model references"]},
+    "review_delivery": {"weight":0.7,"phrases":["review","审核","白底图","sku 白底图","white background","定稿归档","归档定稿","图片说明 pdf"]}
+  },
+  "negative_concepts": {
+    "translation_only":{"weight":0.55,"exclusive":true,"phrases":["不制作任何图片","standalone translation","summarize","只要文案"]},
+    "generic_retouch":{"weight":0.55,"exclusive":true,"phrases":["generic photo retouching","旅行照片","单张照片修图"]},
+    "neighbor_only":{"weight":0.55,"exclusive":true,"phrases":["暂不制作商品图","图片无需编辑或审核","商品短视频"]}
+  }
+}

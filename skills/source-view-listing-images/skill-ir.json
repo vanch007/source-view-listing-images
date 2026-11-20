@@ -1,0 +1,97 @@
+{
+  "schema_version": "2.0.0",
+  "name": "source-view-listing-images",
+  "title": "Source-Driven Multilingual Listing",
+  "job_to_be_done": "Build or repair multilingual ecommerce Listing image sets from product selling points, Chinese or other source-language main/detail images, exact SKU references, and real or virtual model references. Create and review main images, mobile detail pages, SKU white-background photos, and image-by-image PDFs. Includes the SHENTAI Malay workflow (商品卖点、中文参考图、模特图、马来语主图、详情图、SKU 白底图、定稿归档). Excludes standalone translation, copywriting, and generic photo retouching.",
+  "trigger_surface": {
+    "description": "Build or repair multilingual ecommerce Listing image sets from product selling points, Chinese or other source-language main/detail images, exact SKU references, and real or virtual model references. Create and review main images, mobile detail pages, SKU white-background photos, and image-by-image PDFs. Includes the SHENTAI Malay workflow (商品卖点、中文参考图、模特图、马来语主图、详情图、SKU 白底图、定稿归档). Excludes standalone translation, copywriting, and generic photo retouching.",
+    "should_trigger": [
+      "按商品卖点、中文参考图及指定模特图，制作这款的马来语主图、详情图和 SKU 白底图。",
+      "从中文详情图独立重做马来语详情图，按手机端一竖排审核。",
+      "Build a Malay Listing image set from our product selling points, original product detail images and virtual model references.",
+      "审核这套商品图和实物的颜色、尺码和模特是否一致，然后制作商品图片说明 PDF 并归档定稿。",
+      "Repair the ecommerce main images using exact SKU references and preserve the real model identity.",
+      "按商品原图做马来西亚上架图套图，包含首图、尺码卡、竖版详情和各色白底。"
+    ],
+    "should_not_trigger": [
+      "只把这段商品卖点翻译成马来语，不制作任何图片。",
+      "Summarize the attached supplier size spreadsheet in English.",
+      "给这张旅行照片调亮一点，单张照片修图。",
+      "写 5 个产品标题，只要文案。"
+    ],
+    "edge_cases": [
+      "为品牌设计虚拟模特四视角母版，暂不制作商品图。",
+      "直接把已定稿主图和详情图上传到 Seller Center，图片无需编辑或审核。",
+      "把已确认的 8 张主图做成一条 15 秒商品短视频。"
+    ]
+  },
+  "workflow": {
+    "steps": [
+      "Read project rules and the selected brief. For 身态马来语商品图 use [SHENTAI workflow](references/shentai-malay-listing.md). Other requests use the [general SOP](references/workflow.md).",
+      "Inventory and deduplicate without deleting. Separate product truth, visual demonstration, real/virtual model identity, data, and style references. Exact same-SKU originals govern color and construction. Approved data governs sizes and claims. Use [evidence schema](references/evidence-schema.md) and prepare `SOURCE_COLOR_ANCHOR_GATE.json` per selected color.",
+      "Map each purchase question to one selling point, source view, target copy and image slot. Validate `LISTING_PLAN.json` with `scripts/validate_listing_plan.py --plan <file>`. Apply requested counts or profile defaults. Mark unsupported colors, claims or features as missing evidence. Finish unaffected work while resolving gaps.",
+      "Use the requested and permitted generator. Real-model/hand edits lock identity, pose and crop to original pixels. Virtual-model tasks bind one approved identity master and exact product evidence. Design original detail pages from source materials. Use local processing for approved branding, export and review previews, with final edits following the project rules.",
+      "Verify actual pixels and rendered text. Use [review rubric](references/review-rubric.md), `scripts/local_visual_review.py`, and `scripts/audit_listing_set.py`. Review the set for distinct visual roles. Repair failed slots and recheck the set. See [failure modes](references/failure-modes.md).",
+      "Deliver the reviewed candidates, image-by-image PDF and relevant previews. Archive the approved version by style and category with source hashes. Platform publishing and formal asset replacement require separate scope, snapshots and readback."
+    ],
+    "decision_points": [
+      "Distinguish real-person source lock from virtual identity master.",
+      "Resolve SKU colour and source-view evidence before the affected image slot.",
+      "Distinguish review candidates, local archive, and authorized formal replacement."
+    ],
+    "failure_modes": [
+      "Wrong model identity",
+      "Derived main masquerading as a detail page",
+      "Unverified SKU data or performance claims",
+      "PDF/image archive version mismatch"
+    ]
+  },
+  "resources": {
+    "references": [
+      "references/evidence-schema.md",
+      "references/failure-modes.md",
+      "references/review-rubric.md",
+      "references/shentai-malay-listing.md",
+      "references/workflow.md"
+    ],
+    "scripts": [
+      "scripts/audit_listing_set.py",
+      "scripts/local_visual_review.py",
+      "scripts/validate_listing_plan.py"
+    ],
+    "assets": [],
+    "reports": [
+      "reports/output_quality_scorecard.md",
+      "reports/trigger_eval.json"
+    ]
+  },
+  "eval_plan": {
+    "trigger": [
+      "evals/semantic_config.json",
+      "evals/trigger_cases.json"
+    ],
+    "output": [
+      "evals/replay_2405.py"
+    ],
+    "adversarial": [],
+    "baseline": "without_skill"
+  },
+  "risk": {
+    "output_risk": "low",
+    "execution_risk": "medium",
+    "trust_boundary": "personal"
+  },
+  "governance": {
+    "owner": "vanch / Codex",
+    "maturity": "production",
+    "review_cadence": "After a failed batch, standard change, or generator change",
+    "review_due": ""
+  },
+  "targets": [
+    "openai"
+  ],
+  "source_files": [
+    "SKILL.md",
+    "agents/interface.yaml"
+  ]
+}

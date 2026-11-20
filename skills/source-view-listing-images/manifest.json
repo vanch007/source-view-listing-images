@@ -1,0 +1,20 @@
+{
+  "name": "source-view-listing-images",
+  "version": "1.1.0",
+  "owner": "vanch / Codex",
+  "updated_at": "2026-11-20",
+  "status": "active",
+  "maturity_tier": "production",
+  "context_budget_tier": "production",
+  "review_cadence": "After a failed batch, standard change, or generator change",
+  "skill_ir_source": "skill-ir.json",
+  "target_platforms": [
+    "openai"
+  ],
+  "factory_components": [
+    "references",
+    "scripts",
+    "evals",
+    "reports"
+  ]
+}

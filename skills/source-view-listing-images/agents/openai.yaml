@@ -1,0 +1,4 @@
+interface:
+  display_name: "Source-Driven Multilingual Listing"
+  short_description: "依据卖点、中文参考和模特图制作并审核多语言商品图"
+  default_prompt: "Use $source-view-listing-images to turn verified selling points, original source references, and the selected model into a reviewed Listing set with main images, independent detail pages, SKU white-background assets, and a matching PDF."

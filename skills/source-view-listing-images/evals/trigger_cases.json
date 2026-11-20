@@ -1,0 +1,22 @@
+{
+  "recommended_threshold": 0.35,
+  "should_trigger": [
+    {"text":"按商品卖点、中文参考图及指定模特图，制作这款的马来语主图、详情图和 SKU 白底图。","family":"full_set"},
+    {"text":"从中文详情图独立重做马来语详情图，按手机端一竖排审核。","family":"detail_repair"},
+    {"text":"Build a Malay Listing image set from our product selling points, original product detail images and virtual model references.","family":"full_set"},
+    {"text":"审核这套商品图和实物的颜色、尺码和模特是否一致，然后制作商品图片说明 PDF 并归档定稿。","family":"review_archive"},
+    {"text":"Repair the ecommerce main images using exact SKU references and preserve the real model identity.","family":"main_repair"},
+    {"text":"按商品原图做马来西亚上架图套图，包含首图、尺码卡、竖版详情和各色白底。","family":"paraphrase"}
+  ],
+  "should_not_trigger": [
+    {"text":"只把这段商品卖点翻译成马来语，不制作任何图片。","family":"translation_only"},
+    {"text":"Summarize the attached supplier size spreadsheet in English.","family":"data_only"},
+    {"text":"给这张旅行照片调亮一点，单张照片修图。","family":"generic_retouch"},
+    {"text":"写 5 个产品标题，只要文案。","family":"copy_only"}
+  ],
+  "near_neighbor": [
+    {"text":"为品牌设计虚拟模特四视角母版，暂不制作商品图。","family":"model_design_only"},
+    {"text":"直接把已定稿主图和详情图上传到 Seller Center，图片无需编辑或审核。","family":"publish_only"},
+    {"text":"把已确认的 8 张主图做成一条 15 秒商品短视频。","family":"video_only"}
+  ]
+}

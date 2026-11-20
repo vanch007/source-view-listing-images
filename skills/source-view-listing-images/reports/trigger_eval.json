@@ -1,0 +1,707 @@
+{
+  "threshold": 0.35,
+  "threshold_explanation": "Prompts at or above the threshold are treated as trigger matches. Scores are driven primarily by semantic intent coverage: packaging intent, workflow-to-skill transformation intent, reuse/distribution intent, and eval intent. Explicit exclusions such as summary-only, translation-only, one-off, document-only, or do-not-build directives apply direct penalties and can override otherwise similar wording.",
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "bucket_stats": {
+    "should_trigger": {
+      "total": 6,
+      "passed": 6,
+      "pass_rate": 1.0
+    },
+    "should_not_trigger": {
+      "total": 4,
+      "passed": 4,
+      "pass_rate": 1.0
+    },
+    "near_neighbor": {
+      "total": 3,
+      "passed": 3,
+      "pass_rate": 1.0
+    }
+  },
+  "family_stats": {
+    "full_set": {
+      "total": 2,
+      "passed": 2,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "detail_repair": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "review_archive": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "main_repair": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "paraphrase": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "translation_only": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "data_only": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "generic_retouch": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "copy_only": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "model_design_only": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "publish_only": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    },
+    "video_only": {
+      "total": 1,
+      "passed": 1,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "pass_rate": 1.0
+    }
+  },
+  "misfires": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "按商品卖点、中文参考图及指定模特图，制作这款的马来语主图、详情图和 SKU 白底图。",
+        "family": "full_set",
+        "score": 1.0,
+        "predicted_trigger": true,
+        "expected_trigger": true,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "model_identity",
+            "review_delivery",
+            "source_grounding"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [],
+          "exclusive_negative_concepts": [],
+          "semantic_coverage": 1.0,
+          "support_score": 0,
+          "lexical_support": 0.333,
+          "negative_penalty": 0,
+          "coverage_boost": 0.06,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "主图",
+                "详情图"
+              ],
+              "model_identity": [
+                "模特图",
+                "指定模特"
+              ],
+              "review_delivery": [
+                "白底图",
+                "sku 白底图"
+              ],
+              "source_grounding": [
+                "商品卖点",
+                "中文参考图"
+              ]
+            },
+            "negative": {}
+          }
+        }
+      },
+      {
+        "prompt": "从中文详情图独立重做马来语详情图，按手机端一竖排审核。",
+        "family": "detail_repair",
+        "score": 0.901,
+        "predicted_trigger": true,
+        "expected_trigger": true,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "review_delivery",
+            "source_grounding"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [],
+          "exclusive_negative_concepts": [],
+          "semantic_coverage": 0.914,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0,
+          "coverage_boost": 0.06,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "详情图"
+              ],
+              "review_delivery": [
+                "审核"
+              ],
+              "source_grounding": [
+                "中文详情图"
+              ]
+            },
+            "negative": {}
+          }
+        }
+      },
+      {
+        "prompt": "Build a Malay Listing image set from our product selling points, original product detail images and virtual model references.",
+        "family": "full_set",
+        "score": 0.929,
+        "predicted_trigger": true,
+        "expected_trigger": true,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "model_identity",
+            "source_grounding"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [],
+          "exclusive_negative_concepts": [],
+          "semantic_coverage": 0.879,
+          "support_score": 0,
+          "lexical_support": 0.778,
+          "negative_penalty": 0,
+          "coverage_boost": 0.06,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "listing image",
+                "listing image set"
+              ],
+              "model_identity": [
+                "virtual model",
+                "virtual model references"
+              ],
+              "source_grounding": [
+                "selling points",
+                "product detail images"
+              ]
+            },
+            "negative": {}
+          }
+        }
+      },
+      {
+        "prompt": "审核这套商品图和实物的颜色、尺码和模特是否一致，然后制作商品图片说明 PDF 并归档定稿。",
+        "family": "review_archive",
+        "score": 0.901,
+        "predicted_trigger": true,
+        "expected_trigger": true,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "review_delivery",
+            "source_grounding"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [],
+          "exclusive_negative_concepts": [],
+          "semantic_coverage": 0.914,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0,
+          "coverage_boost": 0.06,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "商品图"
+              ],
+              "review_delivery": [
+                "审核",
+                "归档定稿",
+                "图片说明 pdf"
+              ],
+              "source_grounding": [
+                "实物"
+              ]
+            },
+            "negative": {}
+          }
+        }
+      },
+      {
+        "prompt": "Repair the ecommerce main images using exact SKU references and preserve the real model identity.",
+        "family": "main_repair",
+        "score": 0.929,
+        "predicted_trigger": true,
+        "expected_trigger": true,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "model_identity",
+            "source_grounding"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [],
+          "exclusive_negative_concepts": [],
+          "semantic_coverage": 0.879,
+          "support_score": 0,
+          "lexical_support": 0.786,
+          "negative_penalty": 0,
+          "coverage_boost": 0.06,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "ecommerce main images",
+                "main images"
+              ],
+              "model_identity": [
+                "real model"
+              ],
+              "source_grounding": [
+                "exact sku references"
+              ]
+            },
+            "negative": {}
+          }
+        }
+      },
+      {
+        "prompt": "按商品原图做马来西亚上架图套图，包含首图、尺码卡、竖版详情和各色白底。",
+        "family": "paraphrase",
+        "score": 0.77,
+        "predicted_trigger": true,
+        "expected_trigger": true,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "source_grounding"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [],
+          "exclusive_negative_concepts": [],
+          "semantic_coverage": 0.793,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0,
+          "coverage_boost": 0.04,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "上架图",
+                "套图"
+              ],
+              "source_grounding": [
+                "商品原图"
+              ]
+            },
+            "negative": {}
+          }
+        }
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "只把这段商品卖点翻译成马来语，不制作任何图片。",
+        "family": "translation_only",
+        "score": 0.0,
+        "predicted_trigger": false,
+        "expected_trigger": false,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "source_grounding"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [
+            "translation_only"
+          ],
+          "exclusive_negative_concepts": [
+            "translation_only"
+          ],
+          "semantic_coverage": 0.276,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0.55,
+          "coverage_boost": 0.0,
+          "concept_evidence": {
+            "positive": {
+              "source_grounding": [
+                "商品卖点"
+              ]
+            },
+            "negative": {
+              "translation_only": [
+                "不制作任何图片"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "prompt": "Summarize the attached supplier size spreadsheet in English.",
+        "family": "data_only",
+        "score": 0.0,
+        "predicted_trigger": false,
+        "expected_trigger": false,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [
+            "translation_only"
+          ],
+          "exclusive_negative_concepts": [
+            "translation_only"
+          ],
+          "semantic_coverage": 0.0,
+          "support_score": 0,
+          "lexical_support": 0.125,
+          "negative_penalty": 0.55,
+          "coverage_boost": 0.0,
+          "concept_evidence": {
+            "positive": {},
+            "negative": {
+              "translation_only": [
+                "summarize"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "prompt": "给这张旅行照片调亮一点，单张照片修图。",
+        "family": "generic_retouch",
+        "score": 0.0,
+        "predicted_trigger": false,
+        "expected_trigger": false,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [
+            "generic_retouch"
+          ],
+          "exclusive_negative_concepts": [
+            "generic_retouch"
+          ],
+          "semantic_coverage": 0.0,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0.55,
+          "coverage_boost": 0.0,
+          "concept_evidence": {
+            "positive": {},
+            "negative": {
+              "generic_retouch": [
+                "旅行照片",
+                "单张照片修图"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "prompt": "写 5 个产品标题，只要文案。",
+        "family": "copy_only",
+        "score": 0.0,
+        "predicted_trigger": false,
+        "expected_trigger": false,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [
+            "translation_only"
+          ],
+          "exclusive_negative_concepts": [
+            "translation_only"
+          ],
+          "semantic_coverage": 0.0,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0.55,
+          "coverage_boost": 0.0,
+          "concept_evidence": {
+            "positive": {},
+            "negative": {
+              "translation_only": [
+                "只要文案"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "为品牌设计虚拟模特四视角母版，暂不制作商品图。",
+        "family": "model_design_only",
+        "score": 0.0,
+        "predicted_trigger": false,
+        "expected_trigger": false,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "model_identity"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [
+            "neighbor_only"
+          ],
+          "exclusive_negative_concepts": [
+            "neighbor_only"
+          ],
+          "semantic_coverage": 0.603,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0.55,
+          "coverage_boost": 0.04,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "商品图"
+              ],
+              "model_identity": [
+                "虚拟模特"
+              ]
+            },
+            "negative": {
+              "neighbor_only": [
+                "暂不制作商品图"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "prompt": "直接把已定稿主图和详情图上传到 Seller Center，图片无需编辑或审核。",
+        "family": "publish_only",
+        "score": 0.0,
+        "predicted_trigger": false,
+        "expected_trigger": false,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals",
+            "review_delivery"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [
+            "neighbor_only"
+          ],
+          "exclusive_negative_concepts": [
+            "neighbor_only"
+          ],
+          "semantic_coverage": 0.638,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0.55,
+          "coverage_boost": 0.04,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "主图",
+                "详情图"
+              ],
+              "review_delivery": [
+                "审核"
+              ]
+            },
+            "negative": {
+              "neighbor_only": [
+                "图片无需编辑或审核"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "prompt": "把已确认的 8 张主图做成一条 15 秒商品短视频。",
+        "family": "video_only",
+        "score": 0.0,
+        "predicted_trigger": false,
+        "expected_trigger": false,
+        "passed": true,
+        "score_detail": {
+          "mode": "semantic-intent",
+          "desired_positive_concepts": [
+            "listing_visuals",
+            "source_grounding",
+            "model_identity",
+            "review_delivery"
+          ],
+          "matched_desired_concepts": [
+            "listing_visuals"
+          ],
+          "extra_positive_concepts": [],
+          "matched_negative_concepts": [
+            "neighbor_only"
+          ],
+          "exclusive_negative_concepts": [
+            "neighbor_only"
+          ],
+          "semantic_coverage": 0.517,
+          "support_score": 0,
+          "lexical_support": 0.0,
+          "negative_penalty": 0.55,
+          "coverage_boost": 0.0,
+          "concept_evidence": {
+            "positive": {
+              "listing_visuals": [
+                "主图"
+              ]
+            },
+            "negative": {
+              "neighbor_only": [
+                "商品短视频"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "comparison": {
+    "baseline_false_positives": 0,
+    "baseline_false_negatives": 0,
+    "improved_false_positives": 0,
+    "improved_false_negatives": 0,
+    "false_positive_delta": 0,
+    "false_negative_delta": 0,
+    "baseline_precision": 1.0,
+    "improved_precision": 1.0,
+    "baseline_recall": 1.0,
+    "improved_recall": 1.0
+  }
+}
