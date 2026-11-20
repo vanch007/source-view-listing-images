@@ -4,11 +4,11 @@
 
 ## 在 Codex 中安装
 
-先确认你的 GitHub 账号有仓库读取权限，且本机 Git 可以访问仓库。把下面这段发给 Codex。
+仓库公开，无需 GitHub 登录。把下面这段发给 Codex。
 
-> 请用 Codex 的 skill-installer 从 GitHub 私有仓库 `vanch007/source-view-listing-images` 安装技能 `skills/source-view-listing-images`，使用标签 `v1.1.0` 和 Git 下载方式。安装后检查本机技能目录下的 `source-view-listing-images/SKILL.md` 是否存在。若本机已有同名技能，先告诉我路径和版本。
+> 请用 Codex 的 skill-installer 从 https://github.com/vanch007/source-view-listing-images/tree/v1.1.0/skills/source-view-listing-images 安装技能。安装后检查本机技能目录下的 `source-view-listing-images/SKILL.md` 是否存在。若本机已有同名技能，先告诉我路径和版本。
 
-通过安装助手时，参数为 `--repo vanch007/source-view-listing-images --path skills/source-view-listing-images --ref v1.1.0 --method git`。安装完成后开启新对话，必要时重启 Codex。
+通过安装助手时，参数为 `--repo vanch007/source-view-listing-images --path skills/source-view-listing-images --ref v1.1.0 --method download`。安装完成后开启新对话，必要时重启 Codex。
 
 ## 用法
 
